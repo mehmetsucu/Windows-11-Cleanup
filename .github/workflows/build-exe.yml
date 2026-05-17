@@ -1,0 +1,76 @@
+# GitHub Actions Workflow - Automatically Build Windows .exe
+# This workflow runs on GitHub's servers (no installation needed!)
+# It builds the .exe file whenever code is pushed to GitHub
+
+name: Build Windows EXE
+
+# Trigger this workflow when code is pushed to main branch
+on:
+  push:
+    branches: [ main, master ]
+  # Also allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Run on Windows environment
+    runs-on: windows-latest
+
+    steps:
+    # Step 1: Download the code from GitHub
+    - uses: actions/checkout@v3
+
+    # Step 2: Set up Python 3.11
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    # Step 3: Install dependencies from requirements.txt
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Step 4: Build the .exe file using PyInstaller
+    - name: Build EXE with PyInstaller
+      run: |
+        pyinstaller --onefile --windowed cleanup_app.py
+
+    # Step 5: Upload .exe as artifact (download from GitHub)
+    - name: Upload EXE artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: cleanup_app-windows
+        path: dist/cleanup_app.exe
+
+    # Step 6: Create a Release with the .exe file
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Release v${{ github.run_number }}
+        body: |
+          Windows Cleanup Tool - Standalone Executable
+          
+          Download `cleanup_app.exe` and run it directly!
+          
+          No Python installation needed.
+          Just double-click and go.
+        draft: false
+        prerelease: false
+      if: github.event_name == 'push'
+    
+    # Step 7: Upload .exe to the release
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/cleanup_app.exe
+        asset_name: cleanup_app.exe
+        asset_content_type: application/octet-stream
+      if: github.event_name == 'push'
