@@ -2,7 +2,46 @@
 
 A simple, user-friendly application to clean unnecessary files, folders, and registry entries from Windows.
 
-## Features
+---
+
+## ⚡ QUICK START (5 Minutes)
+
+### What You Need
+- Windows 10 or Windows 11
+- Python 3.10+ (download from https://www.python.org/)
+  - ✅ Check "Add Python to PATH" during installation
+
+### Step 1: Setup (First Time Only)
+1. Right-click `setup.bat`
+2. Select **"Run as administrator"**
+3. Choose **option 1**: "Install dependencies"
+4. Wait for completion
+
+### Step 2: Run the App
+1. Run `setup.bat` again (as administrator)
+2. Choose **option 2**: "Run the cleanup app"
+3. Click **"Scan System"** button
+4. Wait for scan to complete (~10-30 seconds)
+
+### Step 3: Review & Clean
+1. Check each tab to see what will be cleaned
+2. Items are **checked by default** (will be deleted)
+3. **Uncheck** any items you want to keep
+4. Click **"Clean Now"**
+5. Confirm when asked
+6. Watch the progress bar
+7. Done! ✨
+
+### Create Standalone .exe (Optional)
+Want to share the app or run without Python?
+1. Run `setup.bat` again
+2. Choose **option 3**: "Build standalone .exe"
+3. New file: `dist\cleanup_app.exe`
+4. Now you can run it anywhere without Python!
+
+---
+
+## 📋 Features
 
 - **Scan System** - Find unnecessary files in multiple locations:
   - Temporary files
@@ -15,62 +54,11 @@ A simple, user-friendly application to clean unnecessary files, folders, and reg
 
 - **Clean Files** - Safely delete found items with confirmation
 
-- **User-Friendly UI** - Simple dark theme interface
+- **User-Friendly UI** - Simple dark theme interface with tabs
 
-- **No Installation** - Single .exe file, ready to run
+- **No Installation** - Single .exe file option available
 
-## Setup Instructions
-
-### Step 1: Install Python (if not already installed)
-Download Python 3.10 or later from https://www.python.org/
-Make sure to check "Add Python to PATH" during installation
-
-### Step 2: Install Dependencies
-Open Command Prompt (cmd) and run:
-
-```bash
-pip install -r requirements.txt
-```
-
-This installs:
-- PyQt5 (GUI framework)
-- psutil (system information)
-- pyinstaller (for creating .exe)
-
-### Step 3: Run the Application
-
-#### Option A: Run Python file directly
-```bash
-python cleanup_app.py
-```
-
-#### Option B: Run as Administrator (recommended for system cleanup)
-```bash
-python -m cleanup_app
-```
-or right-click cleanup_app.py → "Run as administrator"
-
-## Building Standalone .EXE File
-
-### Step 1: Create the .exe
-Open Command Prompt in the project folder and run:
-
-```bash
-pyinstaller --onefile --windowed --icon=cleanup.ico cleanup_app.py
-```
-
-Parameters explained:
-- `--onefile` = Creates single .exe file (not a folder)
-- `--windowed` = No console window (clean GUI only)
-- `--icon=cleanup.ico` = Use custom icon (optional)
-
-### Step 2: Find Your .exe
-The .exe file will be created in: `dist/cleanup_app.exe`
-
-### Step 3: Run the .exe
-Double-click `cleanup_app.exe` to run
-
-The .exe is now standalone and needs NO Python installed to run!
+- **Fully Commented Code** - Every line explained for easy understanding
 
 ## How to Use
 
