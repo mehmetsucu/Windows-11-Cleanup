@@ -1,0 +1,120 @@
+================================================================================
+WINDOWS CLEANUP TOOL - QUICK START GUIDE
+================================================================================
+
+Welcome to Windows Cleanup Tool!
+
+This app helps you clean unnecessary files from your Windows computer to free
+up storage space and potentially speed up your system.
+
+================================================================================
+FASTEST WAY TO GET STARTED (5 minutes)
+================================================================================
+
+1. INSTALL DEPENDENCIES
+   - Right-click "setup.bat"
+   - Select "Run as administrator"
+   - Choose option 1: "Install dependencies"
+   - Wait for installation to complete
+
+2. RUN THE APP
+   - In the same setup.bat menu
+   - Choose option 2: "Run the cleanup app"
+   - Click "Scan System" button
+   - Wait for scan to complete
+
+3. REVIEW RESULTS
+   - Check each tab to see what will be cleaned
+   - Items are checked by default (will be deleted)
+   - Uncheck any items you want to keep
+
+4. CLEAN
+   - Click "Clean Now"
+   - Confirm when asked
+   - Wait for cleanup to complete
+   - See how much space was freed!
+
+================================================================================
+CREATE STANDALONE .EXE (Optional - for sharing/backup)
+================================================================================
+
+1. Run setup.bat again
+2. Choose option 3: "Build standalone .exe"
+3. Wait for build to complete
+4. New file created: dist\cleanup_app.exe
+5. You can now run cleanup_app.exe without Python installed!
+
+================================================================================
+WHAT DOES IT CLEAN?
+================================================================================
+
+✓ Temporary Files (Windows temp folders)
+✓ Browser Cache (Chrome, Edge, Firefox)
+✓ Recycle Bin (permanently)
+✓ Log Files (old system logs)
+✓ Old Downloads (6+ months old)
+✓ Startup Apps (disabled from automatic startup)
+✓ Windows Update Cache (old update files)
+
+================================================================================
+SAFETY NOTES
+================================================================================
+
+⚠ IMPORTANT: Always run as Administrator
+  - Right-click setup.bat
+  - Select "Run as administrator"
+
+⚠ IMPORTANT: Backup first
+  - While the tool targets unnecessary files only
+  - Some files might be important to you
+  - Keep backups of important data
+
+⚠ NOTE: You'll be logged out of browsers
+  - Cache clearing = browser login sessions cleared
+  - You'll need to log in again
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Q: Nothing happens when I click buttons
+A: Make sure you're running as Administrator (see safety notes above)
+
+Q: "Permission Denied" error
+A: Again, run as Administrator
+
+Q: Scan found nothing
+A: Your system is already very clean!
+   Or some folders couldn't be accessed (admin rights needed)
+
+Q: How much space will be freed?
+A: Depends on your system usage. Typically:
+   - Light user: 500 MB - 2 GB
+   - Average user: 2 GB - 10 GB
+   - Heavy user: 10 GB - 50 GB+
+
+================================================================================
+FILE DESCRIPTIONS
+================================================================================
+
+cleanup_app.py         - Main Python application (with detailed comments)
+requirements.txt       - List of Python packages needed
+setup.bat              - Easy setup and run helper (Windows only)
+README.md              - Complete documentation
+dist/cleanup_app.exe   - Standalone executable (created after building)
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Run setup.bat
+2. Choose option 1 to install
+3. Choose option 2 to run
+4. Click "Scan System"
+5. Click "Clean Now" after reviewing
+
+That's it! Your computer will be cleaner.
+
+================================================================================
+For more details, see README.md
+================================================================================

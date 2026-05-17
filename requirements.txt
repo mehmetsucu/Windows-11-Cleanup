@@ -1,0 +1,11 @@
+# Windows Cleanup Tool - Python Dependencies
+# These are all the packages needed to run the application
+
+# GUI Framework - Creates the user interface
+PyQt5==5.15.9
+
+# System utilities - For process and system information
+psutil==5.9.6
+
+# PyInstaller - Converts Python to standalone .exe
+pyinstaller==6.1.0
